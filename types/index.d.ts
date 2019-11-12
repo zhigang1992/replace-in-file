@@ -2,7 +2,7 @@
 declare module 'replace-in-file' {
   function replaceInFile(config: ReplaceInFileConfig): Promise<ReplaceResult[]>;
   function replaceInFile(config: ReplaceInFileConfig, cb: (error: Error, results: ReplaceResult[]) => void): void;
-  export default replaceInFile;
+  export = replaceInFile;
 
   namespace replaceInFile {
     export function sync(config: ReplaceInFileConfig): ReplaceResult[];
@@ -17,6 +17,7 @@ declare module 'replace-in-file' {
     disableGlobs?: boolean,
     encoding?: string,
     dry?:boolean
+    ignore?: string | string[]
   }
 
   export interface ReplaceResult {
